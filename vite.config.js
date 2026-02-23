@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [react()],
   base: '/ZenZero-Developer/',
   build: {
-    outDir: 'dist',
+    outDir: 'docs'
   },
 })
