@@ -12,9 +12,9 @@ const contactMethods = [
     icon: Mail,
     title: 'Email Support',
     description: 'Get help via email',
-    value: 'yashborse11111@gmail.com',
+    value: 'yashborse432005@gmail.com',
     action: 'Send Email',
-    href: 'mailto:yashborse11111@gmail.com'
+    href: 'mailto:yashborse432005@gmail.com'
   },
   {
     icon: Clock,

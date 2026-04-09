@@ -420,8 +420,8 @@ export default function Privacy() {
                 </div>
                 <div className="rowStart">
                   <span className="muted2" style={{ width: '8rem' }}>Email</span>
-                  <a href="mailto:yashborse11111@gmail.com" className="link">
-                    yashborse11111@gmail.com
+                  <a href="mailto:yashborse432005@gmail.com" className="link">
+                    yashborse432005@gmail.com
                   </a>
                 </div>
               </div>

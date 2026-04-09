@@ -90,11 +90,11 @@ export default function Footer() {
             <h4 className="font-semibold text-white mb-6">Contact</h4>
             <div className="space-y-4">
               <a
-                href="mailto:yashborse11111@gmail.com"
+                href="mailto:yashborse432005@gmail.com"
                 className="flex items-center gap-3 text-zinc-400 hover:text-cyan-400 transition-colors text-sm"
               >
                 <Mail className="w-4 h-4" />
-                yashborse11111@gmail.com
+                yashborse432005@gmail.com
               </a>
               <div className="p-4 bg-white/5 rounded-xl border border-white/5">
                 <p className="text-zinc-400 text-sm mb-3">App by</p>

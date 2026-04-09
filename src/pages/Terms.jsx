@@ -178,8 +178,8 @@ export default function Terms() {
               </div>
               <div className="flex items-center gap-4">
                 <span className="text-zinc-500 w-32">Email:</span>
-                <a href="mailto:yashborse11111@gmail.com" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-                  yashborse11111@gmail.com
+                <a href="mailto:yashborse432005@gmail.com" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                  yashborse432005@gmail.com
                 </a>
               </div>
             </div>

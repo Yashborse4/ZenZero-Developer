@@ -91,7 +91,7 @@ Then enable GitHub Pages in repo settings:
 
 - **Company**: ZenZero Developer
 - **App**: Cars0
-- **Contact**: yashborse11111@gmail.com
+- **Contact**: yashborse432005@gmail.com
 
 ## 📱 Google Play Store
 
