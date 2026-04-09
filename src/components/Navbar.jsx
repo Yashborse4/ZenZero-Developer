@@ -45,16 +45,22 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
+            {navLinks.map((link, index) => (
+              <motion.div
                 key={link.path}
-                to={link.path}
-                className={`nav-link text-sm font-medium ${
-                  location.pathname === link.path ? 'text-cyan-400' : 'text-zinc-400 hover:text-white'
-                }`}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
               >
-                {link.label}
-              </Link>
+                <Link
+                  to={link.path}
+                  className={`nav-link text-sm font-medium ${
+                    location.pathname === link.path ? 'text-cyan-400' : 'text-zinc-400 hover:text-white'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              </motion.div>
             ))}
           </div>
 

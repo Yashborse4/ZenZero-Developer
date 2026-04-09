@@ -113,17 +113,22 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Floating Elements */}
+        {/* Floating Mockup Image */}
         <motion.div
-          animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute right-[10%] top-1/3 w-64 h-64 bg-gradient-to-br from-cyan-500/30 to-violet-500/30 rounded-3xl backdrop-blur-xl border border-white/10 hidden lg:block"
-        />
-        <motion.div
-          animate={{ y: [0, 20, 0], rotate: [0, -5, 0] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute right-[5%] bottom-1/4 w-48 h-48 bg-gradient-to-br from-violet-500/30 to-cyan-500/30 rounded-3xl backdrop-blur-xl border border-white/10 hidden lg:block"
-        />
+           initial={{ opacity: 0, x: 100, rotate: 5 }}
+           animate={{ opacity: 1, x: 0, rotate: 0 }}
+           transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+           className="absolute right-[5%] top-1/2 -translate-y-1/2 w-[500px] hidden lg:block"
+        >
+          <div className="relative">
+            <div className="absolute inset-0 bg-cyan-500/20 blur-[100px] rounded-full" />
+            <img 
+              src="/assets/hero-mockup.png" 
+              alt="Cars0 App Mockup" 
+              className="relative z-10 w-full drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+            />
+          </div>
+        </motion.div>
       </section>
 
       {/* Stats Section */}
