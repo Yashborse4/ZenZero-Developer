@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, MapPin, Clock, Send, MessageSquare, User, CheckCircle, HelpCircle, FileQuestion, Shield } from 'lucide-react'
+import { Mail, MapPin, Clock, Send, MessageSquare, User, CheckCircle, HelpCircle, FileQuestion, Shield, ChevronRight } from 'lucide-react'
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -10,25 +10,25 @@ const fadeIn = {
 const contactMethods = [
   {
     icon: Mail,
-    title: 'Email Support',
-    description: 'Get help via email',
+    title: 'Business Inquiries',
+    description: 'For partnerships and projects',
     value: 'yashborse432005@gmail.com',
     action: 'Send Email',
     href: 'mailto:yashborse432005@gmail.com'
   },
   {
     icon: Clock,
-    title: 'Response Time',
-    description: 'How fast we reply',
-    value: '24-48 hours',
+    title: 'Office Hours',
+    description: 'Mon - Fri, 9AM - 6PM',
+    value: 'Standard Response: 24h',
     action: null,
     href: null
   },
   {
     icon: MapPin,
-    title: 'Developer',
-    description: 'App developed by',
-    value: 'ZenZero Developer',
+    title: 'ZenZero Studio',
+    description: 'Headquarters',
+    value: 'India',
     action: null,
     href: null
   },
@@ -70,21 +70,23 @@ export default function Contact() {
   return (
     <div className="bg-[#0a0a0f] min-h-screen">
       {/* Header */}
-      <section className="page-header pt-32">
-        <div className="container relative z-10">
+      <section className="page-header pt-40 pb-20 overflow-hidden relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(139,92,246,0.1),transparent_50%)]" />
+        <div className="container relative z-10 text-center">
           <motion.div
             initial="initial"
             animate="animate"
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             variants={fadeIn}
+            className="max-w-4xl mx-auto"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 mb-6">
-              <HelpCircle className="w-4 h-4 text-cyan-400" />
-              <span className="text-sm text-cyan-400 font-medium">Support</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 mb-8 backdrop-blur-md">
+              <HelpCircle className="w-4 h-4 text-violet-400" />
+              <span className="text-sm text-violet-300 font-semibold uppercase tracking-wider">Connect With Us</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Contact Us</h1>
-            <p className="text-xl text-zinc-400 max-w-2xl">
-              Have questions? We're here to help. Reach out to our support team.
+            <h1 className="mb-8">Get in <span className="gradient-text">Touch</span></h1>
+            <p className="text-xl md:text-2xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+              Have questions about our projects or want to collaborate? We're here to help you drive innovation.
             </p>
           </motion.div>
         </div>
@@ -101,20 +103,21 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="card text-center"
+                className="card text-center h-full"
               >
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-violet-500/20 flex items-center justify-center mx-auto mb-4">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/10 to-violet-500/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500">
                   <method.icon className="w-7 h-7 text-cyan-400" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-1">{method.title}</h3>
-                <p className="text-zinc-500 text-sm mb-3">{method.description}</p>
-                <p className="text-white font-medium mb-3">{method.value}</p>
+                <h3 className="text-xl font-bold text-white mb-2">{method.title}</h3>
+                <p className="text-zinc-500 text-sm mb-4 leading-relaxed">{method.description}</p>
+                <p className="text-white font-semibold mb-4 tracking-tight break-all">{method.value}</p>
                 {method.action && (
                   <a
                     href={method.href}
-                    className="text-cyan-400 hover:text-cyan-300 text-sm font-medium transition-colors"
+                    className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 text-sm font-bold transition-all group/link"
                   >
-                    {method.action} →
+                    {method.action} 
+                    <ChevronRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                   </a>
                 )}
               </motion.div>
@@ -278,21 +281,19 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="p-10 rounded-3xl bg-gradient-to-br from-cyan-900/30 to-violet-900/30 border border-cyan-500/20 text-center"
+            className="panel p-12 text-center bg-white/[0.03] border border-white/10 relative overflow-hidden group"
           >
-            <div className="w-16 h-16 rounded-full bg-cyan-500/20 flex items-center justify-center mx-auto mb-6">
-              <Shield className="w-8 h-8 text-cyan-400" />
+            <div className="w-20 h-20 rounded-3xl bg-cyan-400/20 flex items-center justify-center mx-auto mb-8 relative z-10">
+              <Shield className="w-10 h-10 text-cyan-400" />
             </div>
-            <h2 className="text-2xl font-bold mb-4">Your Privacy Matters</h2>
-            <p className="text-zinc-400 max-w-xl mx-auto mb-6">
-              All communications are handled securely and in accordance with our Privacy Policy. We never share your contact information with third parties.
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 relative z-10 text-white">Your Privacy <span className="gradient-text">Matters</span></h2>
+            <p className="text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed relative z-10">
+              At ZenZero, we handle all communications with extreme care and security. Your data is protected by industry-leading encryption and never shared with third parties.
             </p>
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-zinc-500">
-              <span>Encrypted Connection</span>
-              <span>•</span>
-              <span>Secure Storage</span>
-              <span>•</span>
-              <span>No Data Sharing</span>
+            <div className="flex flex-wrap justify-center gap-8 text-sm font-bold text-zinc-500 relative z-10">
+              <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-cyan-500" /> AES-256 Encryption</span>
+              <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-violet-500" /> Secure Storage</span>
+              <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-cyan-500" /> No Data Sharing</span>
             </div>
           </motion.div>
         </div>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Car, Mail, Github, Twitter, Instagram } from 'lucide-react'
+import { Zap, Mail, Github, Twitter, Instagram } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const footerLinks = {
@@ -7,6 +7,11 @@ const footerLinks = {
     { label: 'Privacy Policy', path: '/privacy' },
     { label: 'Terms of Service', path: '/terms' },
     { label: 'Delete Account', path: '/delete-account' },
+  ],
+  projects: [
+    { label: 'School ERP', path: '/school-management' },
+    { label: 'Wheel Deal', path: '/wheel-deal' },
+    { label: 'Daily Worker', path: '/daily-worker' },
   ],
   support: [
     { label: 'Contact Us', path: '/contact' },
@@ -27,14 +32,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-violet-500 flex items-center justify-center">
-                <Car className="w-5 h-5 text-white" />
+            <Link to="/" className="flex items-center gap-4 mb-8 group">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-500 to-violet-500 flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
+                <Zap className="w-6 h-6 text-white" />
               </div>
-              <span className="font-bold text-xl text-white">Cars0</span>
+              <span className="font-bold text-2xl text-white">ZenZero</span>
             </Link>
-            <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-              Cars0 is a used car marketplace that connects buyers and sellers. List your car, discover deals, and connect faster.
+            <p className="text-zinc-400 text-lg leading-relaxed mb-8">
+              Crafting the next generation of digital excellence through innovation and engineering.
             </p>
             <div className="flex items-center gap-4">
               {footerLinks.social.map((item) => (
@@ -43,7 +48,7 @@ export default function Footer() {
                   href={item.href}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-zinc-400 hover:text-cyan-400 hover:bg-white/10 transition-colors"
+                  className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-400 hover:text-cyan-400 hover:bg-cyan-500/10 border border-white/5 hover:border-cyan-500/30 transition-all duration-300"
                 >
                   <item.icon className="w-5 h-5" />
                 </motion.a>
@@ -51,7 +56,50 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Legal Links */}
+          {/* Projects */}
+          <div>
+            <h4 className="font-semibold text-white mb-6">Projects</h4>
+            <ul className="space-y-4">
+              {footerLinks.projects.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.path}
+                    className="text-zinc-400 hover:text-cyan-400 transition-colors text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Support */}
+          <div>
+            <h4 className="font-semibold text-white mb-6">Support</h4>
+            <ul className="space-y-4">
+              {footerLinks.support.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.path}
+                    className="text-zinc-400 hover:text-cyan-400 transition-colors text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <a
+                  href="mailto:yashborse432005@gmail.com"
+                  className="flex items-center gap-3 text-zinc-400 hover:text-cyan-400 transition-colors text-sm"
+                >
+                  <Mail className="w-4 h-4" />
+                  Email Support
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Legal */}
           <div>
             <h4 className="font-semibold text-white mb-6">Legal</h4>
             <ul className="space-y-4">
@@ -66,41 +114,6 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* Support Links */}
-          <div>
-            <h4 className="font-semibold text-white mb-6">Support</h4>
-            <ul className="space-y-4">
-              {footerLinks.support.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    to={link.path}
-                    className="text-zinc-400 hover:text-cyan-400 transition-colors text-sm"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="font-semibold text-white mb-6">Contact</h4>
-            <div className="space-y-4">
-              <a
-                href="mailto:yashborse432005@gmail.com"
-                className="flex items-center gap-3 text-zinc-400 hover:text-cyan-400 transition-colors text-sm"
-              >
-                <Mail className="w-4 h-4" />
-                yashborse432005@gmail.com
-              </a>
-              <div className="p-4 bg-white/5 rounded-xl border border-white/5">
-                <p className="text-zinc-400 text-sm mb-3">App by</p>
-                <p className="text-white font-medium">ZenZero Developer</p>
-              </div>
-            </div>
           </div>
         </div>
 

@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Car } from 'lucide-react'
+import { Menu, X, Zap } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const navLinks = [
   { path: '/', label: 'Home' },
-  { path: '/privacy', label: 'Privacy' },
-  { path: '/terms', label: 'Terms' },
-  { path: '/delete-account', label: 'Delete Account' },
+  { path: '/school-management', label: 'School ERP' },
+  { path: '/wheel-deal', label: 'Wheel Deal' },
+  { path: '/daily-worker', label: 'Daily Worker' },
+  { path: '/about', label: 'About' },
   { path: '/contact', label: 'Contact' },
 ]
 
@@ -15,6 +16,11 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
+  const isHomePage = location.pathname === '/'
+
+  const filteredLinks = isHomePage
+    ? navLinks.filter((link) => !['Privacy', 'Terms', 'Delete Account'].includes(link.label))
+    : navLinks
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,23 +35,23 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#0a0a0f]/90 backdrop-blur-xl border-b border-white/5' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? 'bg-black/60 backdrop-blur-2xl border-b border-white/10' : 'bg-transparent'
       }`}
     >
       <div className="container">
-        <nav className="flex items-center justify-between h-20">
+        <nav className="flex items-center justify-between h-24">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-violet-500 flex items-center justify-center group-hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-shadow duration-300">
-              <Car className="w-5 h-5 text-white" />
+          <Link to="/" className="flex items-center gap-4 group">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-500 to-violet-500 flex items-center justify-center group-hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] transition-all duration-500 group-hover:rotate-12">
+              <Zap className="w-6 h-6 text-white" />
             </div>
-            <span className="font-bold text-xl tracking-tight text-white">Cars0</span>
+            <span className="font-bold text-2xl tracking-tight text-white group-hover:text-cyan-400 transition-colors">ZenZero</span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link, index) => (
+            {filteredLinks.map((link, index) => (
               <motion.div
                 key={link.path}
                 initial={{ opacity: 0, y: -20 }}
@@ -95,7 +101,7 @@ export default function Navbar() {
             className="md:hidden bg-[#0a0a0f]/95 backdrop-blur-xl border-b border-white/5"
           >
             <div className="container py-6 flex flex-col gap-4">
-              {navLinks.map((link) => (
+              {filteredLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}

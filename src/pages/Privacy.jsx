@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useParams } from 'react-router-dom'
 import { Shield, Camera, Image, HardDrive, MapPin, Bell, Lock, Server, Users, Trash2, AlertTriangle, CheckCircle, BarChart3 } from 'lucide-react'
 
 const fadeIn = {
@@ -29,25 +30,35 @@ const permissions = [
   },
 ]
 
+const appData = {
+  'school-management': 'ZenoxERP',
+  'wheel-deal': 'WheelDeal',
+  'daily-worker': 'Daily Worker App',
+}
+
 export default function Privacy() {
+  const { appId } = useParams()
+  const appName = appData[appId] || 'ZenZero'
+
   return (
     <div className="page">
       {/* Header */}
-      <section className="page-header pt-32">
+      <section className="page-header pt-40 pb-20 overflow-hidden relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(6,182,212,0.1),transparent_50%)]" />
         <div className="container relative z-10">
           <motion.div
             initial="initial"
             animate="animate"
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             variants={fadeIn}
           >
-            <div className="badge badgeCyan mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 mb-8 backdrop-blur-md">
               <Shield className="w-4 h-4 text-cyan-400" />
-              <span>Legal</span>
+              <span className="text-sm text-cyan-300 font-semibold uppercase tracking-wider">Privacy & Security</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Privacy Policy</h1>
-            <p className="text-xl text-zinc-400 max-w-2xl">
-              Last Updated: February 2026
+            <h1 className="mb-6">Privacy <span className="gradient-text">Policy</span></h1>
+            <p className="text-xl text-zinc-400 max-w-2xl leading-relaxed">
+              Last Updated: February 2026 • Version 2.0
             </p>
           </motion.div>
         </div>
@@ -64,10 +75,10 @@ export default function Privacy() {
             className="panel"
           >
             <p className="text-zinc-300 leading-relaxed mb-4">
-              <strong className="text-white">ZenZero Developer</strong> ("Company", "we", "our", or "us") operates the <strong className="text-white">Cars0</strong> mobile application ("App"). This Privacy Policy explains how we collect, use, store, and protect your information when you use our App on Android and iOS devices.
+              <strong className="text-white">ZenZero Developer</strong> ("Company", "we", "our", or "us") operates the <strong className="text-white">{appName}</strong> mobile application ("App"). This Privacy Policy explains how we collect, use, store, and protect your information when you use our App on Android and iOS devices.
             </p>
             <p className="text-zinc-400 leading-relaxed">
-              By using Cars0, you agree to the collection and use of information in accordance with this Privacy Policy.
+              By using {appName}, you agree to the collection and use of information in accordance with this Privacy Policy.
             </p>
           </motion.div>
         </div>
@@ -87,7 +98,7 @@ export default function Privacy() {
           </div>
 
           <div className="stack">
-            <div className="panelSoft">
+            <div className="panel">
               <h3 className="text-xl font-semibold text-white mb-3">1.1 Personal Information</h3>
               <p className="text-zinc-400 mb-4">When you create an account, we collect:</p>
               <ul className="dotList">
@@ -98,7 +109,7 @@ export default function Privacy() {
               <p className="muted2 mt-6">This information is required to create and manage your user account.</p>
             </div>
 
-            <div className="panelSoft">
+            <div className="panel">
               <h3 className="text-xl font-semibold text-white mb-3">1.2 Location Information</h3>
               <p className="text-zinc-400 mb-4">We collect location data to provide location-based services within the App. This may include:</p>
               <ul className="dotList">
@@ -109,7 +120,7 @@ export default function Privacy() {
               <p className="muted2 mt-6">Location data is only collected when the app is actively in use.</p>
             </div>
 
-            <div className="panelSoft">
+            <div className="panel">
               <h3 className="text-xl font-semibold text-white mb-3">1.3 Device and Usage Information</h3>
               <p className="text-zinc-400 mb-4">We automatically collect certain technical information, including:</p>
               <ul className="dotList">
@@ -140,7 +151,7 @@ export default function Privacy() {
             className="mb-12"
           >
             <h2 className="text-3xl font-bold mb-4">2. Permissions We Request</h2>
-            <p className="text-zinc-400">Cars0 requires the following permissions to provide full functionality:</p>
+            <p className="text-zinc-400">{appName} requires the following permissions to provide full functionality:</p>
           </motion.div>
 
           <div className="grid2">
@@ -152,7 +163,7 @@ export default function Privacy() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.02 }}
-                className="card"
+                className="panel h-full"
               >
                 <div className="iconBox mb-4">
                   <perm.icon className="w-6 h-6 text-cyan-400" />
@@ -216,7 +227,7 @@ export default function Privacy() {
             <h2 className="sectionTitle">4. Push Notifications</h2>
           </div>
           <div className="panel">
-            <p className="text-zinc-400 mb-6">Cars0 may send push notifications related to:</p>
+            <p className="text-zinc-400 mb-6">{appName} may send push notifications related to:</p>
             <ul className="dotList mb-6">
               {['Account activity', 'Service updates', 'Important alerts'].map((item) => (
                 <li key={item} className="dotItem"><span className="dot" />{item}</li>
@@ -331,7 +342,7 @@ export default function Privacy() {
             <h2 className="sectionTitle">9. Children’s Privacy</h2>
           </div>
           <div className="panelDanger">
-            <p className="text-zinc-200"><strong className="text-white">Cars0 is not intended for children under the age of 13.</strong></p>
+            <p className="text-zinc-200"><strong className="text-white">{appName} is not intended for children under the age of 13.</strong></p>
             <p className="text-zinc-400 mt-4">We do not knowingly collect personal information from children under 13. If we become aware of such data collection, we will take steps to remove the information promptly.</p>
           </div>
         </div>
@@ -371,7 +382,7 @@ export default function Privacy() {
           </div>
           <div className="panel">
             <p className="text-zinc-400 leading-relaxed">
-              Cars0 uses <strong className="text-white">internally implemented analytics</strong> to understand app usage and improve performance.
+              {appName} uses <strong className="text-white">internally implemented analytics</strong> to understand app usage and improve performance.
               We do <strong className="text-white">not</strong> use third-party analytics or tracking SDKs (such as Firebase Analytics, Google Analytics, or similar) for collecting user behavior data.
             </p>
           </div>
@@ -416,7 +427,7 @@ export default function Privacy() {
                 </div>
                 <div className="rowStart">
                   <span className="muted2" style={{ width: '8rem' }}>App</span>
-                  <span className="text-white font-medium">Cars0</span>
+                  <span className="text-white font-medium">{appName}</span>
                 </div>
                 <div className="rowStart">
                   <span className="muted2" style={{ width: '8rem' }}>Email</span>

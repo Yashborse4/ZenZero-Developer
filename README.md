@@ -1,6 +1,6 @@
-# Cars0 – Used Car Marketplace Website
+# ZenZero – Digital Excellence & Innovation
 
-A modern, responsive React website for **Cars0**, a used car marketplace that connects buyers and sellers. Built with Vite, React Router, and a senior-level dark marketplace UI.
+A professional, enterprise-grade technology studio website for **ZenZero**, specializing in School ERP, Automotive solutions, and Social Impact applications. Built with Vite, React 18, and a premium modern UI.
 
 ## 🌐 Live Site
 
@@ -9,7 +9,7 @@ A modern, responsive React website for **Cars0**, a used car marketplace that co
 ## ✨ Features
 
 - 📱 Fully responsive design (mobile, tablet, desktop)
-- 🎨 Dark marketplace theme (graphite + emerald + amber)
+- 🎨 Premium modern theme (Cyan + Violet gradients)
 - 📄 Multi-page app with routing
 - ✨ Smooth animations with Framer Motion
 - 🛡️ Play Store–compliant Privacy Policy
@@ -20,9 +20,12 @@ A modern, responsive React website for **Cars0**, a used car marketplace that co
 
 | Page | Path | Purpose |
 |------|------|---------|
-| Home | `/` | Hero, features, and marketplace positioning |
-| Privacy Policy | `/privacy` | Play Store–compliant privacy policy |
-| Terms of Service | `/terms` | Terms and conditions |
+| Home | `/` | Hero, features, and project showcase |
+| School Management | `/school-management` | ZenoxERP details |
+| Automotive Solutions | `/wheel-deal` | WheelDeal marketplace details |
+| Social Impact | `/daily-worker` | DailyWorker app details |
+| Privacy Policy | `/privacy` | Dynamic Play Store–compliant privacy policy |
+| Terms of Service | `/terms` | Dynamic terms and conditions |
 | Account Deletion | `/delete-account` | Account deletion request flow |
 | Contact | `/contact` | Contact form and FAQs |
 
@@ -37,10 +40,10 @@ A modern, responsive React website for **Cars0**, a used car marketplace that co
 
 ## 🎨 Design System
 
-### Colors (Marketplace Theme)
-- **Base**: Graphite dark (`#07090d`)
-- **Primary**: Emerald (`#10b981`)
-- **Accent**: Amber (`#f59e0b`)
+### Colors (ZenZero Theme)
+- **Base**: Deep Dark (`#0a0a0f`)
+- **Primary**: Cyan (`#22d3ee`)
+- **Accent**: Violet (`#8b5cf6`)
 
 ### Typography
 - **Display**: Outfit
@@ -90,12 +93,12 @@ Then enable GitHub Pages in repo settings:
 ## 📄 Legal
 
 - **Company**: ZenZero Developer
-- **App**: Cars0
+- **Brand**: ZenZero
 - **Contact**: yashborse432005@gmail.com
 
 ## 📱 Google Play Store
 
-This website provides the required public URLs for:
+This website provides the required public URLs for ZenZero apps:
 - Privacy Policy
 - Terms of Service
 - Account Deletion

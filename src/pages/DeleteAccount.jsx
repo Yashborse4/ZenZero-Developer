@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Trash2, AlertTriangle, CheckCircle, Mail, User, MessageSquare, Send, Clock, Database, Shield } from 'lucide-react'
 
@@ -39,7 +40,15 @@ const dataCategories = [
   { name: 'Legal Retention', status: 'retained', description: 'Minimal data required by law (if applicable)' },
 ]
 
+const appData = {
+  'school-management': 'ZenoxERP',
+  'wheel-deal': 'WheelDeal',
+  'daily-worker': 'DailyWorker',
+}
+
 export default function DeleteAccount() {
+  const { appId } = useParams()
+  const appName = appData[appId] || 'ZenZero'
   const [formData, setFormData] = useState({
     email: '',
     reason: '',
@@ -55,21 +64,22 @@ export default function DeleteAccount() {
   return (
     <div className="bg-[#0a0a0f] min-h-screen">
       {/* Header */}
-      <section className="page-header pt-32">
+      <section className="page-header pt-40 pb-20 overflow-hidden relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(239,68,68,0.1),transparent_50%)]" />
         <div className="container relative z-10">
           <motion.div
             initial="initial"
             animate="animate"
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             variants={fadeIn}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 mb-8 backdrop-blur-md">
               <Trash2 className="w-4 h-4 text-red-400" />
-              <span className="text-sm text-red-400 font-medium">Account</span>
+              <span className="text-sm text-red-400 font-semibold uppercase tracking-wider">Account Management</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Delete Account</h1>
-            <p className="text-xl text-zinc-400 max-w-2xl">
-              We're sorry to see you go. Here's everything you need to know about account deletion.
+            <h1 className="mb-6">Delete <span className="gradient-text">Account</span></h1>
+            <p className="text-xl md:text-2xl text-zinc-400 max-w-2xl leading-relaxed">
+              We're sorry to see you go. Here's everything you need to know about the account deletion process.
             </p>
           </motion.div>
         </div>
@@ -89,7 +99,7 @@ export default function DeleteAccount() {
             <div>
               <h3 className="text-lg font-semibold text-red-400 mb-2">Important Notice</h3>
               <p className="text-zinc-400">
-                Account deletion is permanent and cannot be undone. Once deleted, you will lose access to all your data, including your profile, saved cars, and any in-app purchases. This action cannot be reversed.
+                Account deletion is permanent and cannot be undone. Once deleted, you will lose access to all your data in {appName}, including your profile, saved records, and any in-app purchases. This action cannot be reversed.
               </p>
             </div>
           </motion.div>

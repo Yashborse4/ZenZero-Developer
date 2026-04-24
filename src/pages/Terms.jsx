@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useParams } from 'react-router-dom'
 import { FileText, Scale, AlertCircle, CheckCircle, XCircle, RefreshCw, Ban } from 'lucide-react'
 
 const fadeIn = {
@@ -11,7 +12,7 @@ const sections = [
     id: 'acceptance',
     icon: CheckCircle,
     title: '1. Acceptance of Terms',
-    content: 'By downloading, installing, or using the Cars0 mobile application ("App"), you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use the App.'
+    content: 'By downloading, installing, or using the App, you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use the App.'
   },
   {
     id: 'eligibility',
@@ -75,25 +76,40 @@ const sections = [
   },
 ]
 
+const appData = {
+  'school-management': 'ZenoxERP',
+  'wheel-deal': 'WheelDeal',
+  'daily-worker': 'DailyWorker',
+}
+
 export default function Terms() {
+  const { appId } = useParams()
+  const appName = appData[appId] || 'ZenZero'
+
+  const dynamicSections = sections.map(section => ({
+    ...section,
+    content: section.content
+  }))
+
   return (
     <div className="bg-[#0a0a0f] min-h-screen">
       {/* Header */}
-      <section className="page-header pt-32">
+      <section className="page-header pt-40 pb-20 overflow-hidden relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(139,92,246,0.1),transparent_50%)]" />
         <div className="container relative z-10">
           <motion.div
             initial="initial"
             animate="animate"
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             variants={fadeIn}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 mb-8 backdrop-blur-md">
               <Scale className="w-4 h-4 text-violet-400" />
-              <span className="text-sm text-violet-400 font-medium">Legal</span>
+              <span className="text-sm text-violet-300 font-semibold uppercase tracking-wider">Legal Framework</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Terms of Service</h1>
-            <p className="text-xl text-zinc-400 max-w-2xl">
-              Last Updated: February 2026
+            <h1 className="mb-6">Terms of <span className="gradient-text">Service</span></h1>
+            <p className="text-xl md:text-2xl text-zinc-400 max-w-2xl leading-relaxed">
+              Last Updated: February 2026 • Version 2.1
             </p>
           </motion.div>
         </div>
@@ -110,14 +126,14 @@ export default function Terms() {
             className="p-8 rounded-2xl bg-white/5 border border-white/10"
           >
             <p className="text-zinc-300 leading-relaxed">
-              These Terms and Conditions ("Terms") govern your access to and use of the Cars0 mobile application operated by <strong className="text-white">ZenZero Developer</strong> ("Company", "we", "our", or "us"). Please read these Terms carefully before using our App.
+              These Terms and Conditions ("Terms") govern your access to and use of the {appName} mobile application operated by <strong className="text-white">ZenZero Developer</strong> ("Company", "we", "our", or "us"). Please read these Terms carefully before using our App.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Terms Sections */}
-      {sections.map((section, index) => (
+      {dynamicSections.map((section, index) => (
         <section key={section.id} className={`py-16 ${index % 2 === 0 ? '' : 'bg-white/[0.02]'}`}>
           <div className="container max-w-4xl">
             <motion.div

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Car, Shield, Zap, MapPin, Bell, Lock, ChevronRight, Download } from 'lucide-react'
+import { Car, Shield, Zap, MapPin, Bell, Lock, ChevronRight, Download, GraduationCap, Briefcase } from 'lucide-react'
 
 const fadeIn = {
   initial: { opacity: 0, y: 30 },
@@ -9,34 +9,34 @@ const fadeIn = {
 
 const features = [
   {
-    icon: MapPin,
-    title: 'Nearby Deals',
-    description: 'Find used cars near you and connect with buyers and sellers in your area.',
+    icon: Zap,
+    title: 'Innovative Solutions',
+    description: 'Cutting-edge technology tailored to solve complex business and social challenges.',
   },
   {
     icon: Shield,
-    title: 'Trusted Profiles',
-    description: 'Create your profile and list cars with clear details to build trust and transparency.',
+    title: 'Secure by Design',
+    description: 'Industry-standard encryption and secure infrastructure to protect your digital assets.',
   },
   {
     icon: Bell,
-    title: 'Instant Alerts',
-    description: 'Get notified when someone is interested in your car or when a listing matches your search.',
+    title: 'Real-time Intelligence',
+    description: 'Stay ahead with instant notifications and data-driven insights across all platforms.',
   },
   {
     icon: Lock,
-    title: 'Privacy First',
-    description: 'Your privacy matters. We do not sell or rent your personal information.',
+    title: 'Privacy Excellence',
+    description: 'We prioritize user privacy and data sovereignty in every product we build.',
   },
   {
-    icon: Zap,
-    title: 'Fast Listings',
-    description: 'Post a car in minutes with photos, pricing, and key information.',
+    icon: Briefcase,
+    title: 'Enterprise Scalability',
+    description: 'Our solutions grow with you, from small startups to large-scale enterprises.',
   },
   {
-    icon: Car,
-    title: 'Buyer–Seller Connect',
-    description: 'A simple platform designed to connect buyers and sellers for used cars.',
+    icon: GraduationCap,
+    title: 'Social Impact',
+    description: 'Developing applications that empower communities and drive meaningful change.',
   },
 ]
 
@@ -47,27 +47,58 @@ const stats = [
   { value: '24/7', label: 'Support' },
 ]
 
+const projects = [
+  {
+    title: 'ZenoxERP',
+    subtitle: 'School Management',
+    description: 'Complete academic and administrative automation for schools.',
+    icon: GraduationCap,
+    path: '/school-management',
+    color: 'cyan',
+    image: '/ZenZero-Developer/assets/digital_school.png',
+  },
+  {
+    title: 'WheelDeal',
+    subtitle: 'Automotive Solutions',
+    description: 'The premier marketplace for vehicle buying, selling, and tracking.',
+    icon: Car,
+    path: '/wheel-deal',
+    color: 'violet',
+    image: '/ZenZero-Developer/assets/digital_wheel.png',
+  },
+  {
+    title: 'DailyWorker',
+    subtitle: 'Social Impact App',
+    description: 'Empowering India\'s workforce with digital job connections.',
+    icon: Briefcase,
+    path: '/daily-worker',
+    color: 'orange',
+    image: '/ZenZero-Developer/assets/worker.png',
+  },
+]
+
 export default function Home() {
   return (
     <div className="bg-[#0a0a0f]">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        {/* Background Effects */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(6,182,212,0.15),transparent)]" />
-        <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-violet-500/20 rounded-full blur-[120px]" />
+        {/* Animated Background Mesh */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 -left-[10%] w-[50%] h-[50%] bg-cyan-500/10 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute bottom-0 -right-[10%] w-[50%] h-[50%] bg-violet-500/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
+        </div>
 
         <div className="container relative z-10">
-          <div className="max-w-3xl">
+          <div className="max-w-4xl mx-auto text-center">
             <motion.div
               initial="initial"
               animate="animate"
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               variants={fadeIn}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md">
                 <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                <span className="text-sm text-zinc-300">Now available on Android & iOS</span>
+                <span className="text-sm font-medium text-zinc-300">Innovating the Digital Frontier</span>
               </div>
             </motion.div>
 
@@ -76,12 +107,11 @@ export default function Home() {
               animate="animate"
               transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
               variants={fadeIn}
-              className="text-5xl md:text-7xl font-extrabold leading-tight mb-6"
+              className="mb-8"
             >
-              Buy & Sell
-              <span className="gradient-text"> Used Cars</span>
+              Building the <span className="gradient-text">Future</span>
               <br />
-              with Cars0
+              with ZenZero
             </motion.h1>
 
             <motion.p
@@ -89,9 +119,9 @@ export default function Home() {
               animate="animate"
               transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               variants={fadeIn}
-              className="text-xl text-zinc-400 mb-10 max-w-xl"
+              className="text-xl md:text-2xl text-zinc-400 mb-12 max-w-2xl mx-auto leading-relaxed"
             >
-              Cars0 is an old car selling platform that connects buyers and sellers. List your car, discover great deals, and close faster with a clean, secure experience.
+              ZenZero is a premier technology studio dedicated to crafting high-impact digital solutions. From enterprise ERPs to automotive marketplaces, we drive the next wave of innovation.
             </motion.p>
 
             <motion.div
@@ -99,53 +129,94 @@ export default function Home() {
               animate="animate"
               transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
               variants={fadeIn}
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap justify-center gap-6"
             >
-              <a href="#download" className="btn btn-primary text-lg py-4 px-8">
-                <Download className="w-5 h-5" />
-                Download Now
+              <a href="#projects" className="btn btn-primary text-lg py-4 px-10">
+                Explore Projects
               </a>
-              <Link to="/privacy" className="btn btn-secondary text-lg py-4 px-8">
-                Privacy Policy
-                <ChevronRight className="w-5 h-5" />
+              <Link to="/about" className="btn btn-secondary text-lg py-4 px-10">
+                About the Studio
               </Link>
             </motion.div>
           </div>
         </div>
-
-        {/* Floating Mockup Image */}
-        <motion.div
-           initial={{ opacity: 0, x: 100, rotate: 5 }}
-           animate={{ opacity: 1, x: 0, rotate: 0 }}
-           transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-           className="absolute right-[5%] top-1/2 -translate-y-1/2 w-[500px] hidden lg:block"
-        >
-          <div className="relative">
-            <div className="absolute inset-0 bg-cyan-500/20 blur-[100px] rounded-full" />
-            <img 
-              src="/assets/hero-mockup.png" 
-              alt="Cars0 App Mockup" 
-              className="relative z-10 w-full drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
-            />
-          </div>
-        </motion.div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 border-y border-white/5">
+      <section className="py-20 relative z-20 -mt-10">
         <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
+          <div className="panel p-8 bg-black/40 backdrop-blur-3xl border-white/10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="text-center"
+                >
+                  <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">{stat.value}</div>
+                  <div className="text-zinc-500 text-sm uppercase tracking-widest">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Showcase */}
+      <section id="projects" className="py-32 relative">
+        <div className="container">
+          <div className="text-center mb-24">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-6xl font-bold mb-6"
+            >
+              Our <span className="gradient-text">Portfolio</span>
+            </motion.h2>
+            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">Discover our ecosystem of professional digital solutions.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
               <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
+                key={project.title}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center"
               >
-                <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">{stat.value}</div>
-                <div className="text-zinc-500">{stat.label}</div>
+                <Link 
+                  to={project.path}
+                  className="block group h-full"
+                >
+                  <div className={`panel p-0 h-full border-white/5 hover:border-${project.color}-500/30 transition-all duration-500 flex flex-col overflow-hidden`}>
+                    <div className="aspect-[16/10] overflow-hidden relative group/img">
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent opacity-60" />
+                      <div className={`absolute top-6 right-6 w-12 h-12 rounded-xl bg-${project.color}-500/20 backdrop-blur-md flex items-center justify-center border border-${project.color}-500/20`}>
+                        <project.icon className={`w-6 h-6 text-${project.color}-400`} />
+                      </div>
+                    </div>
+                    
+                    <div className="p-8 flex flex-col flex-grow">
+                      <div className="text-sm font-semibold text-zinc-500 mb-2 uppercase tracking-[0.2em]">{project.subtitle}</div>
+                      <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
+                      <p className="text-zinc-400 mb-8 text-sm leading-relaxed flex-grow">{project.description}</p>
+                      <div className={`flex items-center gap-3 text-white font-semibold group-hover:text-${project.color}-400 transition-colors`}>
+                        View Project <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -172,7 +243,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-xl text-zinc-400 max-w-2xl mx-auto"
             >
-              Powerful features designed to make your car management effortless and enjoyable.
+              We combine design thinking with robust engineering to deliver products that redefine industries.
             </motion.p>
           </div>
 
@@ -185,7 +256,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -8 }}
-                className="card group"
+                className="card group h-full"
               >
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-violet-500/20 flex items-center justify-center mb-6 group-hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-shadow">
                   <feature.icon className="w-7 h-7 text-cyan-400" />
@@ -209,13 +280,13 @@ export default function Home() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center p-12 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10"
+            className="max-w-4xl mx-auto panel p-12 text-center bg-white/[0.03] border border-white/10 relative overflow-hidden group"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 relative z-10 text-white">
               Ready to get <span className="gradient-text">started</span>?
             </h2>
-            <p className="text-xl text-zinc-400 mb-10">
-              Download Cars0 today and experience the future of car management.
+            <p className="text-xl text-zinc-400 mb-10 relative z-10 max-w-2xl mx-auto leading-relaxed">
+              Partner with ZenZero today and elevate your digital presence to the next level. Let's build something extraordinary.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a href="#" className="btn btn-primary text-lg py-4 px-8">
