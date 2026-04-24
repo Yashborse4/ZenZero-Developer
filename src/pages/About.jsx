@@ -40,26 +40,27 @@ export default function About() {
   return (
     <div className="bg-[#0a0a0f] min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-40 pb-24 overflow-hidden">
+      <section className="relative pt-48 pb-32 overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(6,182,212,0.15),transparent_50%)]" />
         
-        <div className="container relative z-10">
+        <div className="container relative z-10 px-6">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
               initial="initial"
               animate="animate"
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               variants={fadeIn}
+              className="mb-16 px-4"
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 mb-8 backdrop-blur-md">
                 <Sparkles className="w-4 h-4 text-cyan-400" />
                 <span className="text-sm text-cyan-300 font-semibold tracking-wider uppercase">The ZenZero Story</span>
               </div>
-              <h1 className="mb-8">
+              <h1 className="mb-10 text-5xl md:text-6xl font-bold">
                 Crafting the <span className="gradient-text">Digital Pulse</span> of Tomorrow
               </h1>
-              <p className="text-xl md:text-2xl text-zinc-400 leading-relaxed mb-12">
+              <p className="text-xl md:text-2xl text-zinc-400 leading-relaxed mb-12 max-w-3xl mx-auto">
                 ZenZero is a technology-driven studio focused on building high-impact digital ecosystems. We combine artistic design with precision engineering to deliver products that resonate with users and drive business success.
               </p>
             </motion.div>
